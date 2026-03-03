@@ -1,16 +1,21 @@
+#!/bin/zsh
+
+# Trap Ctrl+C / kill signals to ensure cleanup is performed
+trap TearDown SIGINT SIGTERM
+
 # Init
 Init() {
 	local platform=$1
-	Exist $platform
+	Exist "$platform"
 	case $platform in
 	"android")
-		# 判斷 Android 版本是否 < 7
+		# Check if Android version is < 7
 		AndroidVersionOver7
-		# 設定本次 Process 資料夾路徑
+		# Set up output folder path for this session
 		CreateFolder "AndroidRecorder"
 		;;
 	"ios")
-		target_device=$(idb list-targets | grep ooted | cut -d '|' -f 2)
+		target_device=$(idb list-targets | grep ooted | cut -d '|' -f 2 | tr -d ' ')
 		CreateFolder "iOSRecorder"
 		;;
 	esac
@@ -27,11 +32,11 @@ Exist() {
 		;;
 	esac
 
-	if [[ $target_device ]]; then
-		echo "\033[1;34m目前所連接的裝置為:\033[0m"
-		echo "\033[1;35m$target_device\033[0m"
+	if [[ -n "$target_device" ]]; then
+		printf "\033[1;34mCurrently connected device:\033[0m\n"
+		printf "\033[1;35m%s\033[0m\n" "$target_device"
 	else
-		echo "\033[0;31mx ERROR: NO CONNECT/BOOT ANY $target_device DEVICE\033[0m"
+		printf "\033[0;31mx ERROR: NO CONNECT/BOOT ANY %s DEVICE\033[0m\n" "$platform"
 		TearDown
 	fi
 }
@@ -39,7 +44,7 @@ Exist() {
 AndroidVersionOver7() {
 	androidOsVersion=$(adb shell getprop ro.build.version.release | cut -f1 -d .)
 	androidVersionOver7=1
-	minVersion=7
+	local minVersion=7
 	if [[ $androidOsVersion -lt $minVersion ]]; then
 		androidVersionOver7=0
 	fi
@@ -49,23 +54,20 @@ CreateFolder() {
 	local platform=$1
 	basePath="/Users/$(whoami)/Desktop/$platform"
 	folderName=$(date +"%Y%m%d_%H%M%S")
-	if [[ -d $basePath ]]; then
-		mkdir $basePath/$folderName
-	else
-		mkdir $basePath
-		mkdir $basePath/$folderName
-	fi
+	mkdir -p "$basePath/$folderName"
 }
 # Start
 MainProcess() {
-	echo "\033[1;34mStart Record Screen & Log or ScreenShot:\033[0m"
-	read -p "Videorecord: v,  Screenshot: s, change platform: r > " process
+	printf "\033[1;34mStart Record Screen & Log or ScreenShot:\033[0m\n"
+	printf "Videorecord: v,  Screenshot: s, change platform: r > "
+	read process
 	case $process in
 	"v")
-		case $platform in 
+		case $platform in
 		"android")
-			read -p "please enter package name for filter log , or not to enter > " package
-			Recorder $package
+			printf "please enter package name for filter log , or not to enter > "
+			read package
+			Recorder "$package"
 			;;
 		"ios")
 			Recorder
@@ -76,30 +78,42 @@ MainProcess() {
 		Screenshot
 		;;
 	"r")
-		read -p "Android: 1, iOS: 2 > " platform
-		Init $platform
+		printf "Android: 1, iOS: 2 > "
+		read newPlatform
+		case $newPlatform in
+		"1")
+			platform="android"
+			;;
+		"2")
+			platform="ios"
+			;;
+		*)
+			printf "\033[0;31m𝘹 Error: Invalid Option\033[0m\n"
+			return
+			;;
+		esac
+		Init "$platform"
 		;;
 	"q")
 		TearDown
 		;;
 	*)
-		echo "\033[0;31m𝘹 Error: Invalid Option\033[0m"
+		printf "\033[0;31m𝘹 Error: Invalid Option\033[0m\n"
 		;;
 	esac
 }
 # End
 TearDown() {
-	clear
-	case $platform in 
+	case $platform in
 		"android")
 			;;
 		"ios")
 			idb kill
 			sleep 1
-			kill $(pgrep -f idb | tr '\n' '\t')
+			kill $(pgrep -f idb | tr '\n' '\t') 2>/dev/null
 			;;
 	esac
-	exit 1
+	exit 0
 }
 ###############
 # Screen recored function
@@ -107,15 +121,14 @@ Recorder() {
 	local package=$1
 	case $platform in
 	"android")
-		if [[ -n $package ]]; then
-			CheckApp $package
-			if [[ $? == 0 ]]; then
-				echo "\033[0;33m𝘹 Warming: 因未開啟所指定的 App ($package)，故將會記錄所有 Device Log\033[0m"
-				local package=""
+		if [[ -n "$package" ]]; then
+			if ! CheckApp "$package"; then
+				printf "\033[0;33m𝘹 Warning: The specified App (%s) is not running, all device logs will be recorded instead\033[0m\n" "$package"
+				package=""
 			fi
 		fi
 		Screenrecord
-		Logcat $package
+		Logcat "$package"
 		;;
 	"ios")
 		Screenrecord
@@ -127,8 +140,9 @@ Recorder() {
 CheckApp() {
 	local package=$1
 	if [[ $androidVersionOver7 == 1 ]]; then
-		local isExist=$(adb shell pidof $package)
-		if [[ -z $isExist ]]; then
+		local isExist
+		isExist=$(adb shell pidof "$package")
+		if [[ -n "$isExist" ]]; then
 			return 0
 		fi
 	fi
@@ -139,21 +153,21 @@ Logcat() {
 	local filename=Log-$startTime
 	local package=$1
 
-	echo "\033[1:34mGet Log File ...\033[0m"
-	case $platform in 
+	printf "\033[1;34mGet Log File ...\033[0m\n"
+	case $platform in
 	"android")
-		if [[ -z $package ]]; then
-			adb logcat -t "$logStartTime" >$basePath/$folderName/$filename.log
+		if [[ -z "$package" ]]; then
+			adb logcat -t "$logStartTime" > "$basePath/$folderName/$filename.log"
 		else
 			if [[ $androidVersionOver7 == 1 ]]; then
-				adb logcat -t "$logStartTime" --pid=$(adb shell pidof $package) >$basePath/$folderName/$filename.log
+				adb logcat -t "$logStartTime" --pid=$(adb shell pidof "$package") > "$basePath/$folderName/$filename.log"
 			elif [[ $androidVersionOver7 == 0 ]]; then
-				adb logcat -t "$logStartTime" | grep $package >$basePath/$folderName/$filename.log
+				adb logcat -t "$logStartTime" | grep "$package" > "$basePath/$folderName/$filename.log"
 			fi
 		fi
 		;;
 	"ios")
-		nohup idb log --udid $target_device > $basePath/$folderName/$filename.log &
+		idb log --udid "$target_device" > "$basePath/$folderName/$filename.log" 2>/dev/null &
 		;;
 	esac
 }
@@ -163,24 +177,29 @@ Screenrecord() {
 	startTime=$(date +"%Y%m%d_%H%M%S")
 	local filename=Screenrecord-$startTime
 
-	echo "\033[1:34mStart recording ...\033[0m"
-	case $platform in 
+	printf "\033[1;34mStart recording ...\033[0m\n"
+	case $platform in
 	"android")
-		nohup adb shell screenrecord --size 480x800 /sdcard/$filename.mp4 &
-		screenRecorderPID=$(pgrep -f screenrecord)
-		read -n 1 -s -r -p "Press any key to stop recording ..."
-		kill $screenRecorderPID
+		adb shell screenrecord --size 480x800 "/sdcard/$filename.mp4" > /dev/null 2>&1 &
+		screenRecorderPID=$!
+		printf "Press any key to stop recording ..."
+		read -k 1 -s -r
+		kill "$screenRecorderPID"
 		sleep 1
-		adb pull /sdcard/$filename.mp4 $basePath/$folderName
-		adb shell rm -f /sdcard/$screenrecordFile.mp4
+		adb pull "/sdcard/$filename.mp4" "$basePath/$folderName"
+		adb shell rm -f "/sdcard/$filename.mp4"
 		;;
 	"ios")
-		nohup idb record video --udid $target_device $basePath/$folderName/$filename.mp4 &
+		idb record video --udid "$target_device" "$basePath/$folderName/$filename.mp4" > /dev/null 2>&1 &
+		local recorderPID=$!
 		sleep 3
-		nohup idb log --udid $target_device > $basePath/$folderName/$filename.log &
-		sleep 3
-		read -n 1 -s -r -p "Press any key to stop recording ..."
-		idb kill
+		printf "Press any key to stop recording ..."
+		read -k 1 -s -r
+		echo ""
+		kill -INT "$recorderPID" 2>/dev/null
+		wait "$recorderPID" 2>/dev/null
+		printf "\033[1;34mRecording saved.\033[0m\n"
+		;;
 	esac
 }
 # Screen recored sub-function
@@ -188,15 +207,15 @@ Screenshot() {
 	startTime=$(date +"%Y%m%d_%H%M%S")
 	local filename=Screenshot-$startTime
 
-	echo "\033[1:34mGet Screenshot ...\033[0m"
-	case $platform in 
+	printf "\033[1;34mGet Screenshot ...\033[0m\n"
+	case $platform in
 	"android")
-		adb shell screencap -p /sdcard/$filename.png
-		adb pull /sdcard/$filename.png $basePath/$folderName
-		adb shell rm -f /sdcard/$filename.png
+		adb shell screencap -p "/sdcard/$filename.png"
+		adb pull "/sdcard/$filename.png" "$basePath/$folderName"
+		adb shell rm -f "/sdcard/$filename.png"
 		;;
 	"ios")
-		idb screenshot --udid $target_device $basePath/$folderName/$filename.png
+		idb screenshot --udid "$target_device" "$basePath/$folderName/$filename.png"
 		;;
 	esac
 }
@@ -204,8 +223,9 @@ Screenshot() {
 # ----------------------------------------------
 
 echo "Enter your test platform :"
-read -p "Android: 1, iOS: 2 > " platform
-case $platform in 
+printf "Android: 1, iOS: 2 > "
+read platform
+case $platform in
 "1")
 	platform="android"
 	;;
@@ -213,13 +233,13 @@ case $platform in
 	platform="ios"
 	;;
 *)
-	echo "\033[0;31m𝘹 Error: Invalid Option\033[0m"
+	printf "\033[0;31m𝘹 Error: Invalid Option\033[0m\n"
 	exit 1
 	;;
 esac
 
-Init $platform
-while [ 1 ]; do
+Init "$platform"
+while true; do
 	echo ""
-	MainProcess $platform
+	MainProcess
 done
