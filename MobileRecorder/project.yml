@@ -1,0 +1,52 @@
+name: MobileRecorder
+options:
+  bundleIdPrefix: com.jayfu
+  deploymentTarget:
+    macOS: "14.0"
+  xcodeVersion: "16.0"
+
+targets:
+  MobileRecorder:
+    type: application
+    platform: macOS
+    sources:
+      - MobileRecorder
+    info:
+      path: MobileRecorder/App/Info.plist
+      properties:
+        LSUIElement: true
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.jayfu.MobileRecorder
+        MARKETING_VERSION: "1.0.0"
+        CURRENT_PROJECT_VERSION: 1
+        SWIFT_VERSION: "5.9"
+        MACOSX_DEPLOYMENT_TARGET: "14.0"
+        INFOPLIST_FILE: MobileRecorder/App/Info.plist
+        CODE_SIGN_STYLE: Automatic
+        PRODUCT_NAME: "MobileRecorder"
+        COMBINE_HIDPI_IMAGES: true
+        LD_RUNPATH_SEARCH_PATHS:
+          - "@executable_path/../Frameworks"
+
+  MobileRecorderTests:
+    type: bundle.unit-test
+    platform: macOS
+    sources:
+      - MobileRecorderTests
+    dependencies:
+      - target: MobileRecorder
+    settings:
+      base:
+        SWIFT_VERSION: "5.9"
+        GENERATE_INFOPLIST_FILE: true
+
+schemes:
+  MobileRecorder:
+    build:
+      targets:
+        MobileRecorder: all
+        MobileRecorderTests: [test]
+    test:
+      targets:
+        - MobileRecorderTests

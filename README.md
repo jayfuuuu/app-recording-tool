@@ -1,15 +1,27 @@
 # Mobile Recorder
 
-> A command-line tool for screen recording, log capturing, and taking screenshots on Android and iOS devices.
+> A tool for screen recording, log capturing, and taking screenshots on Android and iOS devices — available as both a **CLI script** and a **native macOS menu bar app**.
+
+## Overview
+
+This project provides two ways to record your mobile device:
+
+| | CLI (Shell Script) | macOS App (SwiftUI) |
+|---|---|---|
+| Interface | Terminal | Menu bar |
+| Multi-device | One at a time | Simultaneous |
+| Global hotkeys | — | `Cmd+Shift+R` / `Cmd+Shift+S` |
+| Live log viewer | — | Built-in window |
+| Notifications | — | Native macOS notifications |
+| Requirements | macOS (zsh) | macOS 14.0+ |
 
 ## Features
 
-| Command | Description | Android | iOS |
-|---------|-------------|---------|-----|
-| `v`     | Screen recording + Log capture | ✅ | ✅ |
-| `s`     | Screenshot | ✅ | ✅ |
-| `r`     | Switch platform | ✅ | ✅ |
-| `q`     | Quit | ✅ | ✅ |
+| Feature | Android | iOS |
+|---------|---------|-----|
+| Screen recording + Log capture | ✅ | ✅ |
+| Screenshot | ✅ | ✅ |
+| Package-based log filtering | ✅ | — |
 
 ### Android Extras
 - Enter a **package name** during recording to filter logs (only capture logs from that specific app)
@@ -68,7 +80,9 @@ idb list-targets
 
 ## Usage
 
-### Option 1: Run directly in terminal
+### CLI (Shell Script)
+
+#### Option 1: Run directly in terminal
 
 ```bash
 # Grant execute permission (only needed once)
@@ -78,22 +92,71 @@ chmod +x Recorder.sh
 ./Recorder.sh
 ```
 
-### Option 2: Double-click the `.command` file
+#### Option 2: Double-click the `.command` file
 
 Double-click `Recorder.command` in Finder to automatically open Terminal and run the script.
 
 > First-time use requires execute permission: `chmod +x Recorder.command`
 
+**CLI Commands:**
+
+| Command | Description |
+|---------|-------------|
+| `v`     | Screen recording + Log capture |
+| `s`     | Screenshot |
+| `r`     | Switch platform |
+| `q`     | Quit |
+
+### macOS App (MobileRecorder)
+
+The macOS app lives in the menu bar and provides a graphical interface for all recording features.
+
+**Build & Run:**
+
+1. Install [XcodeGen](https://github.com/yonaskolb/XcodeGen) if you haven't already:
+   ```bash
+   brew install xcodegen
+   ```
+2. Generate the Xcode project and open it:
+   ```bash
+   cd MobileRecorder
+   xcodegen generate
+   open MobileRecorder.xcodeproj
+   ```
+3. Build and run from Xcode (requires macOS 14.0+).
+
+**Global Hotkeys:**
+
+| Shortcut | Action |
+|----------|--------|
+| `Cmd+Shift+R` | Toggle recording |
+| `Cmd+Shift+S` | Take screenshot |
+
+**Menu Bar Features:**
+- Auto-detects connected Android/iOS devices
+- Shows recording timer in the menu bar
+- Start/stop recordings per device (multi-device supported)
+- Live log viewer window
+- Recent sessions list with quick access to output folders
+- Tool availability indicators (adb / idb status)
+
 ## Workflow
 
 ```
-1. Select platform → Android (1) / iOS (2)
-2. Detect device connection status
-3. Choose an action:
-   ├── v: Screen recording (press any key to stop)
-   ├── s: Screenshot
-   ├── r: Switch platform
-   └── q: Quit
+CLI:
+  1. Select platform → Android (1) / iOS (2)
+  2. Detect device connection status
+  3. Choose an action:
+     ├── v: Screen recording (press any key to stop)
+     ├── s: Screenshot
+     ├── r: Switch platform
+     └── q: Quit
+
+App:
+  1. Click menu bar icon
+  2. Select a connected device
+  3. Start Recording / Take Screenshot / Open Log Viewer
+  4. Click to stop — files saved automatically
 ```
 
 ## Output Structure
@@ -119,12 +182,23 @@ Recordings, logs, and screenshots are saved in corresponding folders on the Desk
 ```
 .
 ├── README.md
-├── Recorder.command    # Double-click to run (macOS)
-└── Recorder.sh         # Main script
+├── Recorder.command             # Double-click to run (macOS)
+├── Recorder.sh                  # CLI main script
+└── MobileRecorder/              # macOS menu bar app
+    ├── project.yml              # XcodeGen project spec
+    ├── MobileRecorder/
+    │   ├── App/                 # App entry point & Info.plist
+    │   ├── Models/              # Data models (Device, Platform, etc.)
+    │   ├── ViewModels/          # AppState (core logic)
+    │   ├── Views/               # SwiftUI views (MenuBar, Preferences, etc.)
+    │   ├── Services/            # Android/iOS/Hotkey/Notification services
+    │   └── Utilities/           # Constants, ToolLocator
+    └── MobileRecorderTests/     # Unit tests
 ```
 
 ## System Requirements
 
-- macOS (with zsh)
+- **CLI:** macOS (with zsh)
+- **App:** macOS 14.0+ (Sonoma), Xcode 16+
 - Android devices must have **USB Debugging** enabled
 - iOS devices must be connected via USB and trusted by the computer
