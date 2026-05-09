@@ -14,6 +14,15 @@ class UserSettings {
     var lastAndroidPackage: String {
         didSet { UserDefaults.standard.set(lastAndroidPackage, forKey: "lastAndroidPackage") }
     }
+    var adbPath: String {
+        didSet { UserDefaults.standard.set(adbPath, forKey: "adbPath") }
+    }
+    var idbPath: String {
+        didSet { UserDefaults.standard.set(idbPath, forKey: "idbPath") }
+    }
+    var setupCompleted: Bool {
+        didSet { UserDefaults.standard.set(setupCompleted, forKey: "setupCompleted") }
+    }
 
     init() {
         let defaults = UserDefaults.standard
@@ -23,6 +32,9 @@ class UserSettings {
         self.androidRecordingSize = defaults.string(forKey: "androidRecordingSize") ?? "480x800"
         self.pollingInterval = defaults.double(forKey: "pollingInterval").nonZero ?? 3.0
         self.lastAndroidPackage = defaults.string(forKey: "lastAndroidPackage") ?? ""
+        self.adbPath = defaults.string(forKey: "adbPath") ?? ""
+        self.idbPath = defaults.string(forKey: "idbPath") ?? ""
+        self.setupCompleted = defaults.bool(forKey: "setupCompleted")
     }
 }
 
