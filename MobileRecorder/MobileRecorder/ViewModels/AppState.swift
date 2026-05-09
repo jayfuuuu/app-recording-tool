@@ -23,6 +23,21 @@ class AppState {
 
     var isRecording: Bool { !activeRecordings.isEmpty }
 
+    /// Sync selected device with the current device list
+    func syncDeviceSelection(with devices: [Device]) {
+        // If selected device disconnected, clear selection
+        if let selected = selectedDevice, !devices.contains(selected) {
+            // Keep selection if it's actively recording (device might temporarily drop)
+            if activeRecordings[selected.id] == nil {
+                selectedDevice = nil
+            }
+        }
+        // Auto-select if only one device and nothing selected
+        if selectedDevice == nil, devices.count == 1 {
+            selectedDevice = devices[0]
+        }
+    }
+
     var menuBarIcon: String {
         isRecording ? "record.circle.fill" : "record.circle"
     }

@@ -2,14 +2,22 @@ import SwiftUI
 
 @main
 struct MobileRecorderApp: App {
-    @State private var appState = AppState()
+    @State private var appState: AppState
     @State private var deviceService: DeviceDetectionService
     @State private var settings = UserSettings()
     private let hotkeyService = HotkeyService()
 
     init() {
+        let state = AppState()
         let service = DeviceDetectionService()
+
+        // Auto-select device when list changes
+        service.onDevicesChanged = { [weak state] devices in
+            state?.syncDeviceSelection(with: devices)
+        }
+
         service.startPolling()
+        _appState = State(initialValue: state)
         _deviceService = State(initialValue: service)
 
         NotificationService.requestPermission()
