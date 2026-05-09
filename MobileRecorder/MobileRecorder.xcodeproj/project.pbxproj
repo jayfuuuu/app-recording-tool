@@ -1,0 +1,534 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0951EA4EFF27E25388A5909E /* LogStreamService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369CFFC2C8CC8B01CCD66F20 /* LogStreamService.swift */; };
+		21BDDB279D1BA4A2280BA570 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C45A25650E18BB98946602 /* Constants.swift */; };
+		2752978362577FA7227264BD /* IOSService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8A176EF34525D589733E83 /* IOSService.swift */; };
+		29F952C8648FF995F32FDCA4 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5591293F5FDDF4AEBD2A3C33 /* NotificationService.swift */; };
+		325080C5AE94E707BE67B99D /* ToolLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D7EC8C69FA4E1BF28A80A0 /* ToolLocator.swift */; };
+		3501ACF60232CCD933964C28 /* ProcessRunnerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7238D59F5DF8607F9A265A /* ProcessRunnerTests.swift */; };
+		3A3DF37445710E2DC4CB6063 /* MenuBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F117669D791261C1E807A146 /* MenuBarView.swift */; };
+		3ED333CD80A120E2363F3A49 /* MobileRecorderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9746C754A357E013B773BCDD /* MobileRecorderApp.swift */; };
+		49BBA915BCDA6B7F3C992D74 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E540F2AB2FD45E3D8E8B22 /* AppState.swift */; };
+		70262238E4F826F4CA67B9B2 /* DeviceDetectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B91564B1BE500B91CC4DD8E2 /* DeviceDetectionService.swift */; };
+		7181E4CB9A4B81C637EA896D /* HotkeyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486C40B44F90352D4D5EF97F /* HotkeyService.swift */; };
+		7786BD43888C5DCACE7E06F4 /* SetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69CDBE9825C279DCCA91B072 /* SetupView.swift */; };
+		7993A9FCBEB5C74EE7E416B0 /* OutputManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FBE545FEB5065C09A9DDE5C /* OutputManagerTests.swift */; };
+		7F4F138544E8F3B6BB5C727C /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA44E7081AE8508F28112612 /* Device.swift */; };
+		8017754F64201F73A9B1FD76 /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64282D3B78AC8EF8D213E06 /* Platform.swift */; };
+		9DF7D548CE506FFCF2DB76DF /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D0B9DBECA1B8C614F208B6 /* UserSettings.swift */; };
+		A557FEAEF01E438FBFDA7F04 /* AndroidService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1770CDBD807F1663D971EAE9 /* AndroidService.swift */; };
+		B7FA66C772B1C35EB8CDFAFC /* LogViewerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295F0242E953A4B1D077BF63 /* LogViewerView.swift */; };
+		B9106FDFD709AAD5B9EB17F3 /* RecordingSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A666AE90EC650F11504C17C /* RecordingSession.swift */; };
+		BC507437135FE83CEEA5F9BC /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF6D72123D9ACE94F39AAC3 /* PreferencesView.swift */; };
+		BDA6425C666346C7CA35ACD0 /* ProcessRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842C8E0CCEE453498B7AA9CB /* ProcessRunner.swift */; };
+		C5B452336894C6B188200AFA /* SetupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49E935DBC2C69FB00776497 /* SetupViewModel.swift */; };
+		EBDCB7DF5C2DED4B01262E4D /* PackageInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E238A9BEBD7E44095361733E /* PackageInputView.swift */; };
+		F00BCE3B6D1EF7AB1EE66A01 /* OutputManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AE374D3774EAC0276EEB73 /* OutputManager.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E578C39ED4A96943F16AD309 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 938BA6CD691F0F713C3C3262 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F1537B53540595E8E50D6835;
+			remoteInfo = MobileRecorder;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0F43B9E13601DF21FABF1316 /* MobileRecorder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileRecorder.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1770CDBD807F1663D971EAE9 /* AndroidService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AndroidService.swift; sourceTree = "<group>"; };
+		295F0242E953A4B1D077BF63 /* LogViewerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogViewerView.swift; sourceTree = "<group>"; };
+		369CFFC2C8CC8B01CCD66F20 /* LogStreamService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogStreamService.swift; sourceTree = "<group>"; };
+		41C45A25650E18BB98946602 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		486C40B44F90352D4D5EF97F /* HotkeyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotkeyService.swift; sourceTree = "<group>"; };
+		4AB23914427711A003E59545 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		5591293F5FDDF4AEBD2A3C33 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		64D7EC8C69FA4E1BF28A80A0 /* ToolLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolLocator.swift; sourceTree = "<group>"; };
+		69CDBE9825C279DCCA91B072 /* SetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupView.swift; sourceTree = "<group>"; };
+		6A666AE90EC650F11504C17C /* RecordingSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingSession.swift; sourceTree = "<group>"; };
+		842C8E0CCEE453498B7AA9CB /* ProcessRunner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessRunner.swift; sourceTree = "<group>"; };
+		85AE374D3774EAC0276EEB73 /* OutputManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputManager.swift; sourceTree = "<group>"; };
+		8FBE545FEB5065C09A9DDE5C /* OutputManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputManagerTests.swift; sourceTree = "<group>"; };
+		9746C754A357E013B773BCDD /* MobileRecorderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileRecorderApp.swift; sourceTree = "<group>"; };
+		A0E540F2AB2FD45E3D8E8B22 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		B1D0B9DBECA1B8C614F208B6 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
+		B91564B1BE500B91CC4DD8E2 /* DeviceDetectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDetectionService.swift; sourceTree = "<group>"; };
+		D49E935DBC2C69FB00776497 /* SetupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupViewModel.swift; sourceTree = "<group>"; };
+		DD7238D59F5DF8607F9A265A /* ProcessRunnerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessRunnerTests.swift; sourceTree = "<group>"; };
+		E238A9BEBD7E44095361733E /* PackageInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackageInputView.swift; sourceTree = "<group>"; };
+		E81EE34DAD9C8B8CF82F8E01 /* MobileRecorderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MobileRecorderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE8A176EF34525D589733E83 /* IOSService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOSService.swift; sourceTree = "<group>"; };
+		F117669D791261C1E807A146 /* MenuBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarView.swift; sourceTree = "<group>"; };
+		F64282D3B78AC8EF8D213E06 /* Platform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Platform.swift; sourceTree = "<group>"; };
+		FA44E7081AE8508F28112612 /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
+		FCF6D72123D9ACE94F39AAC3 /* PreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		1FC2E49A0C43242F8188CFD9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FA44E7081AE8508F28112612 /* Device.swift */,
+				F64282D3B78AC8EF8D213E06 /* Platform.swift */,
+				6A666AE90EC650F11504C17C /* RecordingSession.swift */,
+				B1D0B9DBECA1B8C614F208B6 /* UserSettings.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		23E2784D9C6EA7E72891B5F1 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				1770CDBD807F1663D971EAE9 /* AndroidService.swift */,
+				B91564B1BE500B91CC4DD8E2 /* DeviceDetectionService.swift */,
+				486C40B44F90352D4D5EF97F /* HotkeyService.swift */,
+				EE8A176EF34525D589733E83 /* IOSService.swift */,
+				369CFFC2C8CC8B01CCD66F20 /* LogStreamService.swift */,
+				5591293F5FDDF4AEBD2A3C33 /* NotificationService.swift */,
+				85AE374D3774EAC0276EEB73 /* OutputManager.swift */,
+				842C8E0CCEE453498B7AA9CB /* ProcessRunner.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		2CE2041F07A5F4897B4A6D42 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				41C45A25650E18BB98946602 /* Constants.swift */,
+				64D7EC8C69FA4E1BF28A80A0 /* ToolLocator.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		3C2512CD195ADDEF5A1731C7 /* MobileRecorderTests */ = {
+			isa = PBXGroup;
+			children = (
+				8FBE545FEB5065C09A9DDE5C /* OutputManagerTests.swift */,
+				DD7238D59F5DF8607F9A265A /* ProcessRunnerTests.swift */,
+			);
+			path = MobileRecorderTests;
+			sourceTree = "<group>";
+		};
+		460FE20BA4D813E4470C965A /* App */ = {
+			isa = PBXGroup;
+			children = (
+				4AB23914427711A003E59545 /* Info.plist */,
+				9746C754A357E013B773BCDD /* MobileRecorderApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		965D59508EE03BEBB77ADA65 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				295F0242E953A4B1D077BF63 /* LogViewerView.swift */,
+				F117669D791261C1E807A146 /* MenuBarView.swift */,
+				E238A9BEBD7E44095361733E /* PackageInputView.swift */,
+				FCF6D72123D9ACE94F39AAC3 /* PreferencesView.swift */,
+				69CDBE9825C279DCCA91B072 /* SetupView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9893DD9F592AB97047181093 = {
+			isa = PBXGroup;
+			children = (
+				E3F35AF07265DD478C27B398 /* MobileRecorder */,
+				3C2512CD195ADDEF5A1731C7 /* MobileRecorderTests */,
+				A72316E1DA85FCE245CFC419 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A72316E1DA85FCE245CFC419 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0F43B9E13601DF21FABF1316 /* MobileRecorder.app */,
+				E81EE34DAD9C8B8CF82F8E01 /* MobileRecorderTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A9E7C9A2667A147516854B7B /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				A0E540F2AB2FD45E3D8E8B22 /* AppState.swift */,
+				D49E935DBC2C69FB00776497 /* SetupViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		E3F35AF07265DD478C27B398 /* MobileRecorder */ = {
+			isa = PBXGroup;
+			children = (
+				460FE20BA4D813E4470C965A /* App */,
+				1FC2E49A0C43242F8188CFD9 /* Models */,
+				23E2784D9C6EA7E72891B5F1 /* Services */,
+				2CE2041F07A5F4897B4A6D42 /* Utilities */,
+				A9E7C9A2667A147516854B7B /* ViewModels */,
+				965D59508EE03BEBB77ADA65 /* Views */,
+			);
+			path = MobileRecorder;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4CA794A12F555A4D44384DE4 /* MobileRecorderTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F4A1D809D3E39B2AF85737A6 /* Build configuration list for PBXNativeTarget "MobileRecorderTests" */;
+			buildPhases = (
+				269165B98C8A9A8CDBD73855 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				48211DC58C3BAB33D432CED5 /* PBXTargetDependency */,
+			);
+			name = MobileRecorderTests;
+			packageProductDependencies = (
+			);
+			productName = MobileRecorderTests;
+			productReference = E81EE34DAD9C8B8CF82F8E01 /* MobileRecorderTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		F1537B53540595E8E50D6835 /* MobileRecorder */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3F00534FDB0DBA84E237F768 /* Build configuration list for PBXNativeTarget "MobileRecorder" */;
+			buildPhases = (
+				80A5FDE5FDEEE49B7150CA86 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MobileRecorder;
+			packageProductDependencies = (
+			);
+			productName = MobileRecorder;
+			productReference = 0F43B9E13601DF21FABF1316 /* MobileRecorder.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		938BA6CD691F0F713C3C3262 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					F1537B53540595E8E50D6835 = {
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 9B14EDC81D9B727603061D76 /* Build configuration list for PBXProject "MobileRecorder" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 9893DD9F592AB97047181093;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = A72316E1DA85FCE245CFC419 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F1537B53540595E8E50D6835 /* MobileRecorder */,
+				4CA794A12F555A4D44384DE4 /* MobileRecorderTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		269165B98C8A9A8CDBD73855 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7993A9FCBEB5C74EE7E416B0 /* OutputManagerTests.swift in Sources */,
+				3501ACF60232CCD933964C28 /* ProcessRunnerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		80A5FDE5FDEEE49B7150CA86 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A557FEAEF01E438FBFDA7F04 /* AndroidService.swift in Sources */,
+				49BBA915BCDA6B7F3C992D74 /* AppState.swift in Sources */,
+				21BDDB279D1BA4A2280BA570 /* Constants.swift in Sources */,
+				7F4F138544E8F3B6BB5C727C /* Device.swift in Sources */,
+				70262238E4F826F4CA67B9B2 /* DeviceDetectionService.swift in Sources */,
+				7181E4CB9A4B81C637EA896D /* HotkeyService.swift in Sources */,
+				2752978362577FA7227264BD /* IOSService.swift in Sources */,
+				0951EA4EFF27E25388A5909E /* LogStreamService.swift in Sources */,
+				B7FA66C772B1C35EB8CDFAFC /* LogViewerView.swift in Sources */,
+				3A3DF37445710E2DC4CB6063 /* MenuBarView.swift in Sources */,
+				3ED333CD80A120E2363F3A49 /* MobileRecorderApp.swift in Sources */,
+				29F952C8648FF995F32FDCA4 /* NotificationService.swift in Sources */,
+				F00BCE3B6D1EF7AB1EE66A01 /* OutputManager.swift in Sources */,
+				EBDCB7DF5C2DED4B01262E4D /* PackageInputView.swift in Sources */,
+				8017754F64201F73A9B1FD76 /* Platform.swift in Sources */,
+				BC507437135FE83CEEA5F9BC /* PreferencesView.swift in Sources */,
+				BDA6425C666346C7CA35ACD0 /* ProcessRunner.swift in Sources */,
+				B9106FDFD709AAD5B9EB17F3 /* RecordingSession.swift in Sources */,
+				7786BD43888C5DCACE7E06F4 /* SetupView.swift in Sources */,
+				C5B452336894C6B188200AFA /* SetupViewModel.swift in Sources */,
+				325080C5AE94E707BE67B99D /* ToolLocator.swift in Sources */,
+				9DF7D548CE506FFCF2DB76DF /* UserSettings.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		48211DC58C3BAB33D432CED5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F1537B53540595E8E50D6835 /* MobileRecorder */;
+			targetProxy = E578C39ED4A96943F16AD309 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0BD94D505EEB4610D8EFACE2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = MobileRecorder/App/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jayfu.MobileRecorder;
+				PRODUCT_NAME = MobileRecorder;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.9;
+			};
+			name = Release;
+		};
+		744291AB5839CB7911E8BF60 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = MobileRecorder/App/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jayfu.MobileRecorder;
+				PRODUCT_NAME = MobileRecorder;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.9;
+			};
+			name = Debug;
+		};
+		77F97152029494A9E75AC7D1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		81EF41A8EEE84AAF4F7819E8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jayfu.MobileRecorderTests;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.9;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MobileRecorder.app/Contents/MacOS/MobileRecorder";
+			};
+			name = Debug;
+		};
+		8C6DEF970B044D8A38953663 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		F8B07E96AED2D330FB22B647 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jayfu.MobileRecorderTests;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.9;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MobileRecorder.app/Contents/MacOS/MobileRecorder";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3F00534FDB0DBA84E237F768 /* Build configuration list for PBXNativeTarget "MobileRecorder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				744291AB5839CB7911E8BF60 /* Debug */,
+				0BD94D505EEB4610D8EFACE2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		9B14EDC81D9B727603061D76 /* Build configuration list for PBXProject "MobileRecorder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8C6DEF970B044D8A38953663 /* Debug */,
+				77F97152029494A9E75AC7D1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		F4A1D809D3E39B2AF85737A6 /* Build configuration list for PBXNativeTarget "MobileRecorderTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				81EF41A8EEE84AAF4F7819E8 /* Debug */,
+				F8B07E96AED2D330FB22B647 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 938BA6CD691F0F713C3C3262 /* Project object */;
+}

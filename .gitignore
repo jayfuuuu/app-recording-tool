@@ -1,1 +1,19 @@
 *.out
+
+# Sensitive files
+.env*
+*.pem
+*.key
+*.p12
+*.pfx
+credentials.json
+secrets.yaml
+secrets.yml
+id_rsa
+id_ed25519
+
+# macOS
+.DS_Store
+
+# Build
+build/
