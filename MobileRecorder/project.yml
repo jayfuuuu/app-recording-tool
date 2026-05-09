@@ -26,6 +26,7 @@ targets:
         CODE_SIGN_STYLE: Automatic
         PRODUCT_NAME: "MobileRecorder"
         COMBINE_HIDPI_IMAGES: true
+        ENABLE_HARDENED_RUNTIME: true
         LD_RUNPATH_SEARCH_PATHS:
           - "@executable_path/../Frameworks"
 
